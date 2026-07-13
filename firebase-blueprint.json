@@ -1,0 +1,69 @@
+{
+  "entities": {
+    "VideoProject": {
+      "title": "VideoProject",
+      "description": "Represents a single portfolio video project",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string", "enum": ["narrative", "documentary", "commercial", "notes"] },
+        "client": { "type": "string" },
+        "role": { "type": "string" },
+        "year": { "type": "integer" },
+        "duration": { "type": "string" },
+        "description": { "type": "string" },
+        "videoUrl": { "type": "string" },
+        "thumbnailUrl": { "type": "string" },
+        "gearUsed": { "type": "array" },
+        "crewList": { "type": "array" },
+        "synopsis": { "type": "string" }
+      },
+      "required": ["id", "title", "category", "role", "year", "duration", "description", "videoUrl", "thumbnailUrl"]
+    },
+    "PortfolioSettings": {
+      "title": "PortfolioSettings",
+      "description": "Represents configuration settings for the portfolio website",
+      "type": "object",
+      "properties": {
+        "segmentImages": { "type": "object" },
+        "segmentCaptions": { "type": "object" },
+        "headerBackground": { "type": "string" },
+        "headerZoom": { "type": "integer" },
+        "headerXOffset": { "type": "integer" },
+        "headerYOffset": { "type": "integer" },
+        "headerAspectRatio": { "type": "string" },
+        "headerZoomVertical": { "type": "integer" },
+        "headerXOffsetVertical": { "type": "integer" },
+        "headerYOffsetVertical": { "type": "integer" },
+        "contactBio": { "type": "string" },
+        "contactEmail": { "type": "string" },
+        "contactPhoto": { "type": "string" }
+      }
+    },
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Represents an authorized administrator account",
+      "type": "object",
+      "properties": {
+        "username": { "type": "string" },
+        "password": { "type": "string" }
+      },
+      "required": ["username", "password"]
+    }
+  },
+  "firestore": {
+    "projects/{projectId}": {
+      "schema": "VideoProject",
+      "description": "Portfolio video projects catalog"
+    },
+    "settings/portfolio": {
+      "schema": "PortfolioSettings",
+      "description": "Global customisation settings for the website layout, assets, and copy"
+    },
+    "users/{username}": {
+      "schema": "AdminUser",
+      "description": "Authorized admin users details"
+    }
+  }
+}

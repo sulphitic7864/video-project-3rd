@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Video Portfolio",
+  "description": "A clean, minimalist and professional video portfolio showcase for commercial, documentary, college, and personal work.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

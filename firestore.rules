@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ID verification helper to prevent denial of wallet attacks with bloated IDs
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-\\.]+$');
+    }
+
+    // Projects rules - public read, write with ID validation
+    match /projects/{projectId} {
+      allow read: if true;
+      allow create, update, delete: if isValidId(projectId);
+    }
+
+    // Settings rules - public read, write with ID validation
+    match /settings/{settingId} {
+      allow read: if true;
+      allow create, update, delete: if isValidId(settingId);
+    }
+
+    // Users rules - public read for login credential lookup, write with ID validation
+    match /users/{username} {
+      allow read: if true;
+      allow create, update, delete: if isValidId(username);
+    }
+  }
+}
