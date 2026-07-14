@@ -534,7 +534,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-black text-neutral-100 flex flex-col justify-between selection:bg-white selection:text-black font-serif">
-      
       {/* Header Sticky Navigation floating on dark backdrop */}
       <nav className="w-full border-b border-neutral-900 bg-neutral-950/95 sticky top-0 backdrop-blur-md z-40">
         {/* Horizontal (Desktop/Tablet) Layout */}
@@ -740,7 +739,7 @@ export default function App() {
                 />
               ) : (
                 <img
-                  src={headerBackground || "/src/assets/images/akshit_bio_background_1782904525358.jpg"}
+                  src={headerBackground}
                   alt="Cinematic Showcase"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover transition-all duration-300 cinematic-header-img"
@@ -774,9 +773,7 @@ export default function App() {
                       <img
                         src={
                           segmentImages[group.id] ||
-                          featuredProject?.thumbnailUrl ||
-                          'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=1200'
-                        }
+                          featuredProject?.thumbnailUrl}
                         alt={group.title}
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover transition-transform duration-700 ease-out scale-100 group-hover/row:scale-105"
@@ -1420,7 +1417,7 @@ export default function App() {
                                 />
                               ) : (
                                 <img
-                                  src={headerBackground || "/src/assets/images/akshit_bio_background_1782904525358.jpg"}
+                                  src={headerBackground}
                                   alt="Mobile Header Preview"
                                   referrerPolicy="no-referrer"
                                   className="w-full h-full object-cover transition-all duration-300"
